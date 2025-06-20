@@ -1,0 +1,480 @@
+/* Fontes */
+@font-face {
+  font-family: GS;
+  src: url(../fonts/GeneralSans-Regular.otf)
+}
+
+@font-face {
+  font-family: GSSemiBold;
+  src: url(../fonts/GeneralSans-Medium.otf)
+}
+
+/* Reset básico e configurações globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Navegação suave entre seções */
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #060606;
+  background-color: #fafafa;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: GSSemiBold, sans-serif;
+}
+
+p, a, span {
+  font-family: GS, sans-serif;
+}
+
+/* Container principal para centralizar conteúdo */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header fixo com navegação */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-image: linear-gradient(177.6deg, rgba(20, 0, 113, 1) 15.3%, rgba(1, 0, 62, 1) 91.3%);
+  filter: saturate(0);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo/Nome */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.64);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: "Limelight", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logo:hover {
+  color: white;
+  text-shadow: 0 0 5px white;
+}
+
+/* Menu de navegação */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.64);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+
+  &:hover {
+    color: white;
+  }
+}
+
+/* Efeito de linha embaixo dos links */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -5px;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Seção principal - Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+  background: white;
+  position: relative;
+  border-bottom: 1px solid #99999943;
+}
+
+.hero .pattern {
+  position: absolute;
+  top: 0;
+  height: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.2;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: #222;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+/* Animação de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botão estilizado */
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background: transparent;
+  border: 2px solid #060606;
+  color: #060606;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.6s forwards;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  background: #060606;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Seções gerais */
+section {
+  padding: 100px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+  font-weight: 300;
+  color: #020202;
+}
+
+/* Seção Sobre Mim */
+.about {
+  background: white;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.about-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.about-block h3 {
+  color: #222;
+  font-size: 1.3rem;
+}
+
+.about-block ul {
+  margin-left: 16px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.skill-tag {
+  background: #f0f0f0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #060606;
+}
+
+/* Seção Formação */
+.education {
+  background: #060606;
+}
+
+.education h2 {
+  color: white;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  place-items: center;
+}
+
+.education-card {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  border: 1px solid lightgray;
+  max-width: 460px;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+}
+
+.education-card h3 {
+  color: #222;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.education-card .year {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+/* Seção Portfólio */
+.portfolio {
+  background: white;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.portfolio-item {
+  background: #f8f9fa;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  border: 1px solid lightgray;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+}
+
+.portfolio-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  height: 100%;
+}
+
+.portfolio-content h3 {
+  color: #222;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.portfolio-content p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.portfolio-link {
+  color: #060606;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid #060606;
+  transition: color 0.3s ease;
+  width: fit-content;
+}
+
+.portfolio-link:hover {
+  color: #666;
+}
+
+.show-more-projects-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  font-size: 64px;
+  border-radius: 12px;
+  color: gray;
+  transition: 0.24s ease;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background-color: lightgray;
+  }
+}
+
+/* Seção Contato */
+.contact {
+  background: #060606;
+}
+
+.contact h2 {
+  color: white;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group label {
+  display: block;
+  color: rgba(255, 255, 255, 0.64);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 16px 0;
+  font-size: 1.6rem;
+  border: 0px;
+  transition: border-color 0.3s ease;
+  background: transparent;
+  color: white;
+  font-family: GS, sans-serif;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.64);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: white;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 24px;
+  background: white;
+  color: #060606;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: lightgray;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 40px 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    /* Menu mobile pode ser implementado posteriormente */
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Scroll suave para navegação */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: #060606;
+  z-index: 1001;
+  transition: width 0.1s ease;
+}
